@@ -8,12 +8,9 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 const Navbar = () => {
 
 
-    const { user, LogOut,loading } = useContext(AuthContext)
+    const { user, LogOut, loading } = useContext(AuthContext)
 
     const providerData = user?.providerData?.[0];
-    if (loading) return <p>Loading...</p>
-
-
 
     const [isDarkMode, setDarkMode] = useState(() => {
         if (typeof window !== 'undefined') {
@@ -25,6 +22,8 @@ const Navbar = () => {
         return false;
     });
 
+    
+
     useEffect(() => {
         const root = window.document.documentElement;
         if (isDarkMode) {
@@ -35,10 +34,11 @@ const Navbar = () => {
             localStorage.setItem('theme', 'light');
         }
     }, [isDarkMode]);
+    if (loading) return <p>Loading...</p>
 
 
 
-
+    
 
 
     const handleSignOut = () => {
@@ -72,7 +72,7 @@ const Navbar = () => {
                         <NavLink to="/browse-listing" className={({ isActive }) => isActive ? 'active' : ''}>Browse Listing</NavLink>
                         <NavLink to="/my-listing" className={({ isActive }) => isActive ? 'active' : ''}>My Listing</NavLink>
                         <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>About</NavLink>
-                        
+
 
 
 
