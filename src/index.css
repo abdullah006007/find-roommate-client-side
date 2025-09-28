@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@tailwind utilities;
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.active {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: underline;
+}
